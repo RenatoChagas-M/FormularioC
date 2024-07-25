@@ -1,42 +1,67 @@
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps } from "vue";
 
-const definitions = defineProps({
+defineProps({
   type: {
     type: String,
-    default: 'text'
+    default: "text",
   },
   default: {
     type: String,
-    default: ''
+    default: "",
   },
   required: {
     type: String,
-    default: ''
+    default: "",
   },
   min_length: {
     type: String,
-    default: '0'
+    default: "0",
   },
   max_length: {
     type: String,
-    default: '0'
+    default: "0",
   },
   min: {
     type: String,
-    default: '0'
-  }
-})
+    default: "0",
+  },
+  tittleLBL: {
+    type: String,
+    default: "",
+  },
+});
 </script>
 
 <template>
-  <input
-    :type="definitions.type"
-    :definitions.required
-    :minlength="definitions.min_length"
-    :maxlength="definitions.max_length"
-    :min="definitions.min"
-  />
+  <section class="allInputs">
+    <div>
+      <label>
+        {{ tittleLBL }}
+      </label>
+    </div>
+    <div>
+      <input
+        :type="type"
+        <!-- require  -->
+
+        :minlength="min_length"
+        :maxlength="max_length"
+        :min="min"
+      />
+    </div>
+  </section>
 </template>
 
-<style scoped></style>
+<style scoped>
+.allInputs {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+input {
+  border: 1px solid #000;
+  width: 5vw;
+}
+</style>
