@@ -1,5 +1,4 @@
 <script setup>
-
 defineProps({
     tittle:{
         type: String,
@@ -32,3 +31,4 @@ header{
     font-size: 64px;
 }
 </style>
+>>>>>>> main

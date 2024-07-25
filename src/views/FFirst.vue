@@ -13,6 +13,7 @@ import FormsBtn from '../components/ButtonForms.vue';
     </Forms>
 
 
+>>>>>>> main
 </template>
 
 <style scoped>
