@@ -1,15 +1,13 @@
 <script setup>
-import TittlePage from '../components/TittlePage.vue';
-import Main from  '../components/BodyForms.vue';
+import TittlePage from '../components/TittlePage.vue'
+import Main from '../components/BodyForms.vue'
+import forms from '@/components/forms.vue'
 </script>
 
 <template>
-    <TittlePage/>
+  <TittlePage />
 
-        <Main/>
- 
+  <forms />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

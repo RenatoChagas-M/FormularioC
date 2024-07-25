@@ -1,16 +1,14 @@
 <script setup>
 import InputForm from './inputForm.vue'
+import { save } from '../utils/login'
 
 
-function save() {
-  e.preventDefault()
-  console.log('foi')
-}
 </script>
 
+
 <template>
-  <form :action="save">
-    <InputForm type="number" max_length="4" required="required" />
+  <form @submit.prevent="save">
+    <InputForm max_length="55" required="required" />
     <input type="submit" />
   </form>
 </template>
