@@ -1,13 +1,15 @@
 <script setup>
 import TittlePage from '../components/TittlePage.vue';
-import Main from  '../components/BodyForms.vue';
+import Forms from  '../components/BodyForms.vue';
+
 </script>
 
 <template>
-    <TittlePage/>
+    <TittlePage tittle="SignUp"/>
 
-        <Main/>
- 
+    <Forms/>
+
+
 </template>
 
 <style scoped>

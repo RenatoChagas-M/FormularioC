@@ -2,7 +2,7 @@
 
 </script>
 
-<template>
+<template class="w-100% h-100%">
   <RouterView />
 </template>
 

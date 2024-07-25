@@ -1,14 +1,34 @@
 <script setup>
-/* Fazer props para o titulo */
+
+defineProps({
+    tittle:{
+        type: String,
+        required: true
+    }
+})
 
 </script>
 
 <template>
-    <header class="w-full h-30/1">
-        <section class="flex justify-center items-center w-full h-30/1 p-5">
-            <h1 class="text-6xl font-Poppins font-light ">SignUp</h1>
-        </section>
+    <header>
+        <div class="titulo">
+            <h1>{{ tittle }}</h1>
+        </div>
     </header>
 </template>
 
-<style scoped></style>
+<style scoped>
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100vw;
+    height: 10vh;
+}
+
+.titulo{
+    font-weight: lighter;
+    font-size: 64px;
+}
+</style>
