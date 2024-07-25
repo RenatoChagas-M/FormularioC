@@ -1,10 +1,14 @@
 <script setup>
-
+defineProps({
+    btnTittle:{
+        type: String,
+        required: true
+    }
+})
 </script>
 
 <template>
-    <button class="btn" type="submit">Enviar</button>
-
+    <button class="btn" type="submit">{{ btnTittle }}</button>
 </template>
 
 <style scoped>

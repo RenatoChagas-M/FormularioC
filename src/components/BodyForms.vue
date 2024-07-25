@@ -1,11 +1,11 @@
 <script setup>
-import ButtonForms from './ButtonForms.vue';
+
 </script>
 
 <template>
     <body>
         <form class="formulario" action="">
-            
+            <slot></slot>
         </form>
     </body>
 </template>
@@ -20,10 +20,6 @@ import ButtonForms from './ButtonForms.vue';
     }
 
     .formulario{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         width: 50%;
         height: 90%;
         border-radius: 10px;
