@@ -1,14 +1,12 @@
 <script setup>
 defineProps({
-    btnTittle:{
-        type: String,
-        router: "",
-    },
+    btnTittle: String,
+    router: String,
 })
 </script>
 
 <template>
-    <input type="submit" :value="btnTittle" class="btn">
+    <Routerlink :to="router" class="btn">{{ btnTittle }}</Routerlink>
 </template>
 
 <style scoped>

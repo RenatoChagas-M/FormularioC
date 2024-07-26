@@ -32,7 +32,7 @@ function save() {
       </div>
 
       <div class="btnDiv">
-        <ButtonForm btnTittle="Next" />
+        <ButtonForm btnTittle="Next" router="/" />
       </div>
     </form>
   </main>
