@@ -10,7 +10,7 @@ const infoStore = useInfoStore()
 
 <template>
   <div v-if="infoStore.showInfo == false">
-    <TittlePage tittle="SignUp" />
+    <TittlePage tittle="SignUp 2" />
     <Forms/>
   </div>
 </template>

@@ -6,6 +6,7 @@ import { useInfoStore } from '@/stores/form'
 
 const infoStore = useInfoStore()
 
+
 function save() {
   if (infoStore.Info.password == infoStore.Info.confirm) {
     infoStore.showInfo = true
@@ -21,7 +22,17 @@ function save() {
     <form class="form" @submit.prevent="save()">
       <div class="ipt">
         <InputsForm
-          v-for="(item, index) in infoStore.Info"
+          v-if=""
+          v-for="(item, index) in  infoStore.Info"
+          :key="index"
+          :label="item.label"
+          :type="item.type"
+          :placeholder="item.placeholder"
+          :required="item.required"
+          :index="index"
+        />
+        <InputsForm
+          v-for="(item, index) in  infoStore.Info"
           :key="index"
           :label="item.label"
           :type="item.type"
