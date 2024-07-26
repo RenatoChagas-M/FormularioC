@@ -1,30 +1,114 @@
-<script setup></script>
+<script setup>
+import { ref, reactive } from "vue";
+
+import ButtonForm from "./ButtonForms.vue";
+
+const allDefinitons = [
+    {
+        label: "Name",
+        name: "name",
+        type: "text",
+        placeholder: "Name",
+        required: true,
+    },
+    {
+        label: "Email",
+        name: "email",
+        type: "email",
+        placeholder: "Email",
+        required: true,
+    },
+    {
+        label: "Password",
+        name: "password",
+        type: "password",
+        placeholder: "Password",
+        required: true,
+    },
+    {
+        label: "Repeat Password",
+        name: "passwordConfirmation",
+        type: "password",
+        placeholder: "Repeat Password",
+        required: true,
+    },
+    {
+        label: "Born Date",
+        name: "BornDate",
+        type: "date",
+        placeholder: "Born Date",
+        required: true,
+    },
+    {
+        label: "Address",
+        name: "address",
+        type: "text",
+        placeholder: "Address",
+        required: true,
+    },
+];
+
+</script>
 
 <template>
-    <body>
-        <form class="formulario" action="">
-            <slot></slot>
-        </form>
-    </body>
+  <main>
+    <form class="form">
+      <div class="ipt">
+        <div v-for="(item, index) in allDefinitons" :key="index" class="iptDiv">
+          <label>{{ item.label }}</label>
+          <input :type="item.type" :placeholder="item.placeholder" />
+        </div>
+      </div>
+
+      <div class="btnDiv">
+        <ButtonForm btnTittle="Next" />
+      </div>
+    </form>
+  </main>
 </template>
 
 <style scoped>
-    body{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100vw;
-        height: 90vh;
-    }
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 90vh;
+}
 
-    .formulario{
-        max-width: 100%;
-        display: flex;
-        padding: 12px;
-        width: 50%;
-        height: 90%;
-        border-radius: 10px;
-        box-shadow: rgba(0, 0, 0, 0.185) 0px 12px 28px 0px, rgba(0, 0, 0, 0.048) 0px 2px 4px 0px, rgba(255, 255, 255, 0.021) 0px 0px 0px 1px inset;
-    }
+.form {
+  display: flex;
+  height: 60%;
+  width: 40%;
+  flex-direction: column;
+  background-color: aquamarine;
+  padding: 30px;
+}
+
+.ipt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+}
+
+.iptDiv {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.iptDiv > input {
+  width: 90%;
+  height: 30px;
+}
+
+.btnDiv {
+  padding: 30px;
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
 </style>
-
