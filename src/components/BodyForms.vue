@@ -41,7 +41,11 @@ function save() {
           :index="index"
         />
       </div>
-      <ButtonForms btnTittle="next" router="/FSecond" />
+
+      <div class="btnDiv">
+        <ButtonForm btnTittle="Next" router="/" />
+      </div>
+
     </form>
   </main>
 </template>

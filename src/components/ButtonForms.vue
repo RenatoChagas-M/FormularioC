@@ -1,20 +1,12 @@
 <script setup>
 defineProps({
-  btnTittle: {
-    type: String,
-  },
-  Router: {
-    type: Object,
-  },
-});
+    btnTittle: String,
+    router: String,
+})
 </script>
 
 <template>
-  <div class="btnDiv">
-    <router-link class="btn" :to="Router">
-      {{ btnTittle }}
-    </router-link>
-  </div>
+    <Routerlink :to="router" class="btn">{{ btnTittle }}</Routerlink>
 </template>
 
 <style scoped>
