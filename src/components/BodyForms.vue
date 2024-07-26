@@ -1,7 +1,7 @@
 <script setup>
-import ButtonForm from "./ButtonForms.vue";
 import InputsForm from "./InputsForm.vue";
 import { ref, reactive } from "vue";
+import ButtonForms from "./ButtonForms.vue";
 import { useInfoStore } from '@/stores/form'
 
 const infoStore = useInfoStore()
@@ -30,10 +30,7 @@ function save() {
           :index="index"
         />
       </div>
-
-      <div class="btnDiv">
-        <ButtonForm btnTittle="Next" />
-      </div>
+      <ButtonForms btnTittle="next" router="/FSecond" />
     </form>
   </main>
 </template>
@@ -66,10 +63,4 @@ main {
   }
   
 
-.btnDiv {
-  padding: 30px;
-  display: flex;
-  justify-content: end;
-  width: 100%;
-}
 </style>
