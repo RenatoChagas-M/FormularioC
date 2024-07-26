@@ -1,27 +1,17 @@
 <script setup>
 import ButtonForm from "./ButtonForms.vue";
 import InputsForm from "./InputsForm.vue";
-import { ref, reactive } from "vue";
-import { useInfoStore } from '@/stores/form'
+import { ref, reactive, defineProps } from "vue";
 
-const infoStore = useInfoStore()
-
-function save() {
-  if (infoStore.Info.password == infoStore.Info.confirm) {
-    infoStore.showInfo = true
-  } else {
-    alert('as senhas devem ser iguais')
-  }
-}
-
+const props = defineProps(['array'])
 </script>
 
 <template>
   <main>
-    <form class="form" @submit.prevent="save()">
+    <form class="form">
       <div class="ipt">
         <InputsForm
-          v-for="(item, index) in infoStore.Info"
+          v-for="(item, index) in props.array"
           :key="index"
           :label="item.label"
           :type="item.type"
@@ -35,6 +25,7 @@ function save() {
         <ButtonForm btnTittle="Next" router="/" />
       </div>
     </form>
+    <button @click="teste">teste</button>
   </main>
 </template>
 
