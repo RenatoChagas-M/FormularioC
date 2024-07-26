@@ -1,6 +1,6 @@
 <script setup></script>
 
-<template class="w-100% h-100%">
+<template class="">
   <RouterView />
 </template>
 

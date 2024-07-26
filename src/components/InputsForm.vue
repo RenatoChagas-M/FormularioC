@@ -8,15 +8,18 @@ defineProps(
     label:String,
     type:String,
     placeholder:String,
-    bind: String,
+    required: String,
+    assignedconstant: String
    }
 )
+
+
 </script>
 
 <template>
   <div class="iptDiv">
     <label>{{label}}</label>
-    <input :type="type" :placeholder="placeholder" v-bind="infoStore.Info.bind"/>
+    <input :type="type" :placeholder="placeholder" :required="required" />
   </div>
 </template>
 
