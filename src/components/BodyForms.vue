@@ -6,21 +6,9 @@ import { useInfoStore } from '@/stores/form'
 
 const infoStore = useInfoStore()
 
-for (let i = 0; i < infoStore.Info.length; i++) {
-  infoStore.Info[i] = ''
-}
-
-const IptInfo = ref([
-    {label: "Name", type: "text", placeholder: "Enter your name", required: 'true',},
-    {label: "Email", type: "email", placeholder: "Enter your email", required: 'true',},
-    {label: "Password", type: "password", placeholder: "Enter your password", required: 'true',},
-    {label: "Confirm Password", type: "password", placeholder: "Confirm your password", required: 'true',},
-]);
-
 function save() {
   if (infoStore.Info.password == infoStore.Info.confirm) {
     infoStore.showInfo = true
-
   } else {
     alert('as senhas devem ser iguais')
   }
@@ -30,16 +18,16 @@ function save() {
 
 <template>
   <main>
-    <form class="form" @submit.prevent="save(s)">
+    <form class="form" @submit.prevent="save()">
       <div class="ipt">
         <InputsForm
-          v-for="(item, index) in IptInfo"
+          v-for="(item, index) in infoStore.Info"
           :key="index"
           :label="item.label"
           :type="item.type"
           :placeholder="item.placeholder"
           :required="item.required"
-          v-model="infoStore.Info"
+          :index="index"
         />
       </div>
 

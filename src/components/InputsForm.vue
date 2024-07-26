@@ -9,7 +9,8 @@ defineProps(
     type:String,
     placeholder:String,
     required: String,
-    assignedconstant: String
+    assignedconstant: String,
+    index: Number,
    }
 )
 
@@ -19,7 +20,7 @@ defineProps(
 <template>
   <div class="iptDiv">
     <label>{{label}}</label>
-    <input :type="type" :placeholder="placeholder" :required="required" />
+    <input :type="type" :placeholder="placeholder" :required="required" v-model="infoStore.Info[index].result"/>
   </div>
 </template>
 
