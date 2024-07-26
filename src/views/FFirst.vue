@@ -1,9 +1,6 @@
 <script setup>
-import TittlePage from '../components/TittlePage.vue';
-import Forms from  '../components/BodyForms.vue';
-
 import TittlePage from '../components/TittlePage.vue'
-import BodyForms from '@/components/BodyForms.vue'
+import Forms from '@/components/BodyForms.vue'
 import InfoPage from '@/components/InfoPage.vue'
 import { useInfoStore } from '@/stores/form'
 

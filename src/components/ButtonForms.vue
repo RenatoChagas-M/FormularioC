@@ -8,9 +8,7 @@ defineProps({
 </script>
 
 <template>
-    <router-link to="">
-        {{ btnTittle }}
-    </router-link>
+    <input type="submit" :value="btnTittle" class="btn">
 </template>
 
 <style scoped>

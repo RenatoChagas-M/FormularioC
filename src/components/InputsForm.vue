@@ -1,10 +1,14 @@
 <script setup>
+import { useInfoStore } from '@/stores/form'
+
+const infoStore = useInfoStore()
+
 defineProps(
    {
     label:String,
     type:String,
     placeholder:String,
-    
+    bind: String,
    }
 )
 </script>
@@ -12,7 +16,7 @@ defineProps(
 <template>
   <div class="iptDiv">
     <label>{{label}}</label>
-    <input :type="type" :placeholder="placeholder" />
+    <input :type="type" :placeholder="placeholder" v-bind="infoStore.Info.bind"/>
   </div>
 </template>
 

@@ -2,20 +2,31 @@
 import ButtonForm from "./ButtonForms.vue";
 import InputsForm from "./InputsForm.vue";
 import { ref, reactive } from "vue";
+import { useInfoStore } from '@/stores/form'
+
+const infoStore = useInfoStore()
 
 const IptInfo = ref([
-    {label: "Name", type: "text", placeholder: "Enter your name", required: true},
-    {label: "Email", type: "email", placeholder: "Enter your email", required: true},
-    {label: "Password", type: "password", placeholder: "Enter your password", required: true},
-    {label: "Confirm Password", type: "password", placeholder: "Confirm your password", required: true}
+    {label: "Name", type: "text", placeholder: "Enter your name", required: true, bind: "name"},
+    {label: "Email", type: "email", placeholder: "Enter your email", required: true, bind: "email"},
+    {label: "Password", type: "password", placeholder: "Enter your password", required: true, bind: "passsowd"},
+    {label: "Confirm Password", type: "password", placeholder: "Confirm your password", required: true, bind: "confirm"}
 ]
 );
+
+function save() {
+  if (infoStore.Info.password == infoStore.Info.confirm) {
+    infoStore.showInfo = true
+  } else {
+    alert('as senhas devem ser iguais')
+  }
+}
 
 </script>
 
 <template>
   <main>
-    <form class="form">
+    <form class="form" @submit.prevent="save">
       <div class="ipt">
         <InputsForm
           v-for="(item, index) in IptInfo"
