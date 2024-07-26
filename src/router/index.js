@@ -6,7 +6,12 @@ const router = createRouter({
     {
       path: '/',
       name: 'Formulario',
-      component: () => import('../views/FFirst.vue')
+      component: () => import('../views/FSecond.vue')
+    },
+    {
+      path: '/FSecond',
+      name: 'Second Form',
+      component: () => import('../views/FSecond.vue')
     }
   ]
 })

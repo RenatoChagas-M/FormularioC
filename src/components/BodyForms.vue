@@ -1,5 +1,4 @@
 <script setup>
-import ButtonForm from "./ButtonForms.vue";
 import InputsForm from "./InputsForm.vue";
 import { ref, reactive, defineProps } from "vue";
 
@@ -24,6 +23,7 @@ const props = defineProps(['array'])
       <div class="btnDiv">
         <ButtonForm btnTittle="Next" router="/" />
       </div>
+
     </form>
     <button @click="teste">teste</button>
   </main>
@@ -57,10 +57,4 @@ main {
   }
   
 
-.btnDiv {
-  padding: 30px;
-  display: flex;
-  justify-content: end;
-  width: 100%;
-}
 </style>
