@@ -1,52 +1,14 @@
 <script setup>
+import ButtonForm from "./ButtonForms.vue";
+import InputsForm from "./InputsForm.vue";
 import { ref, reactive } from "vue";
 
-import ButtonForm from "./ButtonForms.vue";
-
-const allDefinitons = [
-    {
-        label: "Name",
-        name: "name",
-        type: "text",
-        placeholder: "Name",
-        required: true,
-    },
-    {
-        label: "Email",
-        name: "email",
-        type: "email",
-        placeholder: "Email",
-        required: true,
-    },
-    {
-        label: "Password",
-        name: "password",
-        type: "password",
-        placeholder: "Password",
-        required: true,
-    },
-    {
-        label: "Repeat Password",
-        name: "passwordConfirmation",
-        type: "password",
-        placeholder: "Repeat Password",
-        required: true,
-    },
-    {
-        label: "Born Date",
-        name: "BornDate",
-        type: "date",
-        placeholder: "Born Date",
-        required: true,
-    },
-    {
-        label: "Address",
-        name: "address",
-        type: "text",
-        placeholder: "Address",
-        required: true,
-    },
-];
+const IptInfo = ref(
+    {label: "Name", lblName: "name", type: "text", placeholder: "Enter your name", required: true},
+    {label: "Email", lblName: "email", type: "email", placeholder: "Enter your email", required: true},
+    {label: "Password", lblName: "password", type: "password", placeholder: "Enter your password", required: true},
+    {label: "Confirm Password", lblName: "confirmPassword", type: "password", placeholder: "Confirm your password", required: true}
+);
 
 </script>
 
@@ -54,10 +16,11 @@ const allDefinitons = [
   <main>
     <form class="form">
       <div class="ipt">
-        <div v-for="(item, index) in allDefinitons" :key="index" class="iptDiv">
-          <label>{{ item.label }}</label>
-          <input :type="item.type" :placeholder="item.placeholder" />
-        </div>
+        <InputsForm
+          v-for="(item, index) in IptInfo"
+          :key="index"
+          :IptDefinitions="item"
+        />
       </div>
 
       <div class="btnDiv">
@@ -81,28 +44,8 @@ main {
   height: 60%;
   width: 40%;
   flex-direction: column;
-  background-color: aquamarine;
   padding: 30px;
-}
-
-.ipt {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  height: 100%;
-  width: 100%;
-}
-
-.iptDiv {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-}
-
-.iptDiv > input {
-  width: 90%;
-  height: 30px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 }
 
 .btnDiv {
