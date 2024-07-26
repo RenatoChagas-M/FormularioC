@@ -2,13 +2,15 @@
 defineProps({
     btnTittle:{
         type: String,
-        required: true
+        router: "",
     },
 })
 </script>
 
 <template>
-    <button class="btn" type="submit">{{ btnTittle }}</button>
+    <router-link to="">
+        {{ btnTittle }}
+    </router-link>
 </template>
 
 <style scoped>
