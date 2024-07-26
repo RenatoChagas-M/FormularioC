@@ -25,9 +25,10 @@ header {
   height: 10vh;
 }
 
-.titulo {
-  font-weight: lighter;
-  font-size: 64px;
+.titulo{
+    font-weight: lighter;
+    font-size: 64px;
+    padding-top: 100px;
 }
 </style>
->>>>>>> main
+

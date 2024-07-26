@@ -1,46 +1,41 @@
 <script setup>
-import { useInfoStore } from '@/stores/form'
-import { reactive } from 'vue'
-import FormsBtn from '../components/ButtonForms.vue'
+import ButtonForm from "./ButtonForms.vue";
+import InputsForm from "./InputsForm.vue";
+import { ref, reactive } from "vue";
 
-const newUser = reactive({
-  name: '',
-  password: '',
-  confirm: '',
-  birthday: null,
-  adress: '',
-  city: '',
-  state: '',
-  hobbies: [],
-  languanges: [],
-  biography: ''
-})
-const infoStore = useInfoStore()
+const IptInfo = ref([
+    {label: "Name", type: "text", placeholder: "Enter your name", required: true},
+    {label: "Email", type: "email", placeholder: "Enter your email", required: true},
+    {label: "Password", type: "password", placeholder: "Enter your password", required: true},
+    {label: "Confirm Password", type: "password", placeholder: "Confirm your password", required: true}
+]
+);
 
-function save() {
-  if (newUser.password == newUser.confirm) {
-    infoStore.Info = newUser.value
-    infoStore.showInfo = true
-    console.log(infoStore.Info)
-  } else {
-    alert('as senhas devem ser iguais')
-  }
-}
 </script>
 
 <template>
-  <body>
-    <form class="formulario" @submit.prevent="save">
-      <input type="text" name="" id="" :value="newUser.name" />
-      <input type="password" name="" id="" :value="newUser.password" />
-      <input type="password" name="" id="" :value="newUser.confirm" />
-      <FormsBtn btnTittle="Next" />
+  <main>
+    <form class="form">
+      <div class="ipt">
+        <InputsForm
+          v-for="(item, index) in IptInfo"
+          :key="index"
+          :label="item.label"
+          :Type="item.type"
+          :Placeholder="item.placeholder"
+          :Required="item.required"
+        />
+      </div>
+
+      <div class="btnDiv">
+        <ButtonForm btnTittle="Next" />
+      </div>
     </form>
-  </body>
+  </main>
 </template>
 
 <style scoped>
-body {
+main {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,16 +43,29 @@ body {
   height: 90vh;
 }
 
-.formulario {
-  max-width: 100%;
+.form {
   display: flex;
-  padding: 12px;
-  width: 50%;
-  height: 90%;
-  border-radius: 10px;
-  box-shadow:
-    rgba(0, 0, 0, 0.185) 0px 12px 28px 0px,
-    rgba(0, 0, 0, 0.048) 0px 2px 4px 0px,
-    rgba(255, 255, 255, 0.021) 0px 0px 0px 1px inset;
+  height: 60%;
+  width: 40%;
+  flex-direction: column;
+  padding: 30px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+.ipt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+  }
+  
+
+.btnDiv {
+  padding: 30px;
+  display: flex;
+  justify-content: end;
+  width: 100%;
 }
 </style>

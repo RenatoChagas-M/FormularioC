@@ -1,5 +1,6 @@
 <script setup>
-import { ref } from 'vue'
+import TittlePage from '../components/TittlePage.vue';
+import Forms from  '../components/BodyForms.vue';
 
 import TittlePage from '../components/TittlePage.vue'
 import BodyForms from '@/components/BodyForms.vue'
@@ -12,7 +13,7 @@ const infoStore = useInfoStore()
 <template>
   <div v-if="infoStore.showInfo == false">
     <TittlePage tittle="SignUp" />
-    <BodyForms />
+    <Forms/>    
   </div>
   <div v-else>
     <InfoPage />
