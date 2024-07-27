@@ -1,8 +1,12 @@
 <script setup>
+import ButtonForms from "./ButtonForms.vue";
 import InputsForm from "./InputsForm.vue";
-import { ref, reactive, defineProps } from "vue";
+import {defineProps } from "vue";
 
-const props = defineProps(['array'])
+defineProps([
+  'array'
+])
+
 </script>
 
 <template>
@@ -10,7 +14,7 @@ const props = defineProps(['array'])
     <form class="form">
       <div class="ipt">
         <InputsForm
-          v-for="(item, index) in props.array"
+          v-for="(item, index) in array"
           :key="index"
           :label="item.label"
           :type="item.type"
@@ -21,11 +25,9 @@ const props = defineProps(['array'])
       </div>
 
       <div class="btnDiv">
-        <ButtonForm btnTittle="Next" router="/" />
+        <ButtonForms btnTittle="Next" router="/FSecond" />
       </div>
-
     </form>
-    <button @click="teste">teste</button>
   </main>
 </template>
 

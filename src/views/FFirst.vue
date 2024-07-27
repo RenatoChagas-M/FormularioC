@@ -1,19 +1,18 @@
 <script setup>
-import TittlePage from '../components/TittlePage.vue'
-import Forms from '@/components/BodyForms.vue'
-import ButtonForms from '@/components/ButtonForms.vue'
-import { useInfoStore } from '@/stores/form'
+import TittlePage from "../components/TittlePage.vue";
+import Forms from "@/components/BodyForms.vue";
+import ButtonForms from "@/components/ButtonForms.vue";
+import { useInfoStore } from "@/stores/form";
 
-const infoStore = useInfoStore()
+const infoStore = useInfoStore();
+
+console.log(infoStore.Info2);
 </script>
 
 <template>
-    <TittlePage tittle="SignUp" />
-    <Forms :array="infoStore.Info"/>    
-  </div>
-  <div v-else>
-    <InfoPage />
-  </div>
+  <TittlePage tittle="SignUp" />
+  <Forms :array="infoStore.Info" />
+  <ButtonForms btnTittle="Next" router="/FSecond" />
 </template>
 
 <style scoped>
