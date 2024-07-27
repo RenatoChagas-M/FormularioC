@@ -6,7 +6,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'Formulario',
-      component: () => import('../views/FSecond.vue')
+      component: () => import('../views/FProfile.vue')
     },
     {
       path: '/FSecond',

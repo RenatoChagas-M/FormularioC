@@ -28,7 +28,6 @@ header {
 .titulo{
     font-weight: lighter;
     font-size: 64px;
-    padding-top: 100px;
 }
 </style>
 

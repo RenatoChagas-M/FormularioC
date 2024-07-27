@@ -1,5 +1,5 @@
 <script setup>
-import ButtonForms from "./ButtonForms.vue";
+import ButtonForms from "./ButtonNext.vue";
 import InputsForm from "./InputsForm.vue";
 import {defineProps } from "vue";
 

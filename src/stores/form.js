@@ -1,4 +1,4 @@
-import { ref, reactive } from 'vue'
+import { ref} from 'vue'
 import { defineStore } from 'pinia'
 
 export const useInfoStore = defineStore('Info', () => {
@@ -19,7 +19,9 @@ export const useInfoStore = defineStore('Info', () => {
     {label: "biography", type: "textarea", placeholder: "Enter your biography", required: 'true', result: ''},
     ])
 
+    const allInfo = ref([...Info.value, ...Info2.value])
+
   const showInfo = ref(false)
 
-  return { Info, showInfo }
+  return { Info, Info2, allInfo,  showInfo }
 })
