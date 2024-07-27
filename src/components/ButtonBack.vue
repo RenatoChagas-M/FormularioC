@@ -1,12 +1,12 @@
 <script setup>
 defineProps({
-    btnTittle: String,
-    router: String,
+    btnTittle2: String,
+    router2: String,
 })
 </script>
 
 <template>
-    <RouterLink :to="router" class="btn">{{ btnTittle }}</RouterLink>
+    <RouterLink :to="router2" class="btn">{{ btnTittle2 }}</RouterLink>
 </template>
 
 <style scoped>
@@ -19,7 +19,7 @@ defineProps({
 }
 
 .btn {
-    padding: 10px 20px;
+  padding: 10px 20px;
   background-color: #f1f1f1;
   border: none;
   border-radius: 10px;

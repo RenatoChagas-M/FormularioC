@@ -1,5 +1,4 @@
 <script setup>
-import ButtonForms from "./ButtonNext.vue";
 import InputsForm from "./InputsForm.vue";
 import {defineProps } from "vue";
 
@@ -22,11 +21,13 @@ defineProps([
           :required="item.required"
           :index="index"
         />
+        <slot name="ckS">
+          
+        </slot>
       </div>
-
-      <div class="btnDiv">
-        <ButtonForms btnTittle="Next" router="/FSecond" />
-      </div>
+      <slot name="button">
+        
+      </slot>
     </form>
   </main>
 </template>

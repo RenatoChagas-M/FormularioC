@@ -13,15 +13,16 @@ export const useInfoStore = defineStore('Info', () => {
 
     const Info2 = ref([
     {label: "City", type: "text", placeholder: "Enter your City", required: 'true', result: ''},
-    {label: "State", type: "select", placeholder: "Enter your State", required: 'true', result: ''},
-    {label: "Hobbies", type: "checkbox", placeholder: "Enter your Hobbies", required: 'true', result: ''},
-    {label: "Languages", type: "checkbox", placeholder: "Enter your Languages", required: 'true', result: ''},
-    {label: "biography", type: "textarea", placeholder: "Enter your biography", required: 'true', result: ''},
+    {label: "biography", type: "textarea", placeholder: "Enter your biography", result: ''},
     ])
+    
+    const ck_S_Info = ref({
+      hobbies:"",
+      languages:[""],
+      state:'',
+    })
 
     const allInfo = ref([...Info.value, ...Info2.value])
 
-  const showInfo = ref(false)
-
-  return { Info, Info2, allInfo,  showInfo }
+  return { Info, Info2, allInfo, ck_S_Info }
 })

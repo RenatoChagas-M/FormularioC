@@ -16,7 +16,7 @@ const infoStore = useInfoStore();
                 </i>
             </div>
             <div class="flex justify-center items-center p-10">
-                <ButtonBack btnTittle="Back" router="/FSecond" />    
+                <ButtonBack btnTittle2="Back" router2="/FSecond" />    
             </div>
         </div>
     </main>
