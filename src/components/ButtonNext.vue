@@ -6,7 +6,7 @@ defineProps({
 </script>
 
 <template>
-    <Routerlink :to="router" class="btn">{{ btnTittle }}</Routerlink>
+    <RouterLink :to="router" class="btn">{{ btnTittle }}</RouterLink>
 </template>
 
 <style scoped>
