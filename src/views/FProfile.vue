@@ -2,8 +2,13 @@
 import TittlePage from "@/components/TittlePage.vue";
 import ButtonBack from "@/components/ButtonBack.vue";
 import { useInfoStore } from "@/stores/form";
+import { onMounted } from "vue";
 
 const infoStore = useInfoStore();
+
+onMounted(() => {
+    console.log(infoStore.allInfo)
+})
 </script>
 
 <template>

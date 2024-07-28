@@ -38,6 +38,15 @@ const States = ref([
   { name: "Estrangeiro", sigla: "EX" },
 ]);
 
+const hobbies = ref([
+  "caminhar",
+  'correr',
+  'cozinhar',
+  'lutar',
+  'ler',
+  'ouvir música'
+]);
+
 const languages = ref([
   " C#",
   " Python",
@@ -63,16 +72,23 @@ const infoStore = useInfoStore();
           <div>
             <label for="">Select your State</label>
           </div>
-          <select class="state-ipt">
-            <option v-for="(item, index) in States" :key="index" :value="item.name">
+          <select class="state-ipt" v-model="infoStore.InfoSpecial[2].result">
+            <option v-for="(item, index) in States" :key="index" :value="item.sigla">
               {{ item.name }}-{{ item.sigla }}
             </option>
           </select>
         </div>
 
-        <div class="hobbies">
-          <label for="">Select your Hobbie:</label>
-          <input type="text" v-model="infoStore.hobbies" />
+        <div class="flex flex-col">
+          <label for="">Select your hobbies:</label>
+          <label
+            v-for="(item, index) of hobbies"
+            :key="index"
+            class="flex flex-row items-center">
+            {{ item }}
+            <input type="checkbox" v-model="infoStore.InfoSpecial[0].result" :value="item" />
+          </label>
+
         </div>
 
         <div class="flex flex-col">
@@ -82,7 +98,7 @@ const infoStore = useInfoStore();
             :key="index"
             class="flex flex-row items-center">
             {{ item }}
-            <input type="checkbox" v-model="infoStore.languages" :value="item" />
+            <input type="checkbox" v-model="infoStore.InfoSpecial[1].result" :value="item" />
           </label>
 
         </div>
