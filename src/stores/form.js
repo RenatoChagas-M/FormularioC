@@ -1,4 +1,4 @@
-import { ref} from 'vue'
+import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useInfoStore = defineStore('Info', () => {
@@ -15,14 +15,40 @@ export const useInfoStore = defineStore('Info', () => {
     {label: "City", type: "text", placeholder: "Enter your City", required: 'true', result: ''},
     {label: "biography", type: "textarea", placeholder: "Enter your biography", result: ''},
     ])
+
+    const InfoSpecial = ref([
+    {label: 'hobbies', type: 'checkbox', placeholder: 'Enter your hobbies', result: []},
+    {label: 'languages', type: 'checkbox', placeholder: 'Enter the languages do you know', result: []},
+    {label: 'state', type: 'select', placeholder: 'Enter your living state', result: ''},
+    ])
     
-    const ck_S_Info = ref({
-      hobbies:"",
-      languages:[""],
-      state:'',
+    const validPassword = computed(() => {
+      const indexPass = Info.value.findIndex((s) => s.label === 'Password')
+      const indexConfirm = Info.value.findIndex((s) => s.label === 'Confirm Password' )
+      return (Info.value[indexPass].result == Info.value[indexConfirm].result) ? true : false
+    })
+    
+    const validEmail = computed(() => {
+      const indexEmail = Info.value.findIndex((s) => s.label === 'email')
+      const email = Info.value[indexEmail]
+      return email && email.result.includes('@') && email.result.includes('.')
     })
 
-    const allInfo = ref([...Info.value, ...Info2.value])
+    const validOthers = computed (() => {
+      const indexName = Info.value.findIndex((s) => s.label === 'Name' )
+      const indexBorn = Info.value.findIndex((s) => s.label === 'Born Date' )
+      const indexAddress = Info.value.findIndex((s) => s.label === 'address' )
+      const name = Info.value[indexName]
+      const bornDate = Info.value[indexBorn]
+      const address = Info.value[indexAddress]
+      return name.result != '' && bornDate.result != '' && address.result != ''
+    })
 
-  return { Info, Info2, allInfo, ck_S_Info }
+    const validated = computed(() => {
+      return (validPassword.value && validEmail.value && validOthers.value) ? true : false 
+    }) 
+
+    const allInfo = ref([...Info.value, ...Info2.value, ...InfoSpecial.value])
+
+  return { Info, Info2, InfoSpecial, allInfo, validated}
 })
