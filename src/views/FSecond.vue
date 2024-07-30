@@ -79,39 +79,35 @@ const infoStore = useInfoStore();
           </select>
         </div>
 
-        <div class="flex flex-col">
-          <label for="">Select your hobbies:</label>
-          <label
-            v-for="(item, index) of hobbies"
-            :key="index"
-            class="flex flex-row items-center">
-            {{ item }}
-            <input type="checkbox" v-model="infoStore.InfoSpecial[0].result" :value="item" />
-          </label>
+        <div class="flex justify-center h-56 gap-12 items-center">
+          <div class="flex flex-col overflow-y-scroll h-32 border-b-gray-500 border-2 border-t-gray-500">
+            <label for="">Select your hobbies:</label>
+            <label v-for="(item, index) of hobbies" :key="index" class="flex flex-row items-center">
+              {{ item }}
+              <input type="checkbox" v-model="infoStore.InfoSpecial[0].result" :value="item" />
+            </label>
 
+          </div>
+
+          <div class="flex flex-col overflow-y-scroll h-32 border-b-gray-500 border-2 border-t-gray-500">
+            <label for="">Select your Languages:</label>
+            <label v-for="(item, index) of languages" :key="index" class="flex flex-row items-center">
+              {{ item }}
+              <input type="checkbox" v-model="infoStore.InfoSpecial[1].result" :value="item" />
+            </label>
+          </div>
         </div>
 
-        <div class="flex flex-col">
-          <label for="">Select your Languages:</label>
-          <label
-            v-for="(item, index) of languages"
-            :key="index"
-            class="flex flex-row items-center">
-            {{ item }}
-            <input type="checkbox" v-model="infoStore.InfoSpecial[1].result" :value="item" />
-          </label>
-
-        </div>
       </div>
     </template>
     <template #button>
-      <div class="flex flex-col justify-between">
+      <div class="button-order">
         <div>
-          <ButtonBack btnTittle="back" router2="/" />
+          <ButtonBack btn-tittle2="Back" router2="/" />
         </div>
-      </div>
-      <div>
-        <ButtonNext btnTittle="Next" router="/FProfile" />
+        <div>
+          <ButtonNext btn-tittle="Next" router="/FProfile" />
+        </div>
       </div>
     </template>
   </Forms>
@@ -141,10 +137,9 @@ const infoStore = useInfoStore();
   padding-bottom: 30px;
 }
 
-.hobbies
->  input {
+.hobbies>input {
   width: 100%;
-  height: 30px; 
+  height: 30px;
   background: none;
   border-bottom: 1px solid gray;
 }
@@ -152,10 +147,10 @@ const infoStore = useInfoStore();
 .hobbies {
   display: flex;
   flex-direction: column;
-  padding: 10px 0px; 
+  padding: 10px 0px;
 }
 
-.iptDiv > input:focus {
+.iptDiv>input:focus {
   border: 0px;
 }
 
@@ -165,9 +160,9 @@ const infoStore = useInfoStore();
   background: none;
 }
 
-.languages {
-  display: flexq;
+.button-order {
+  display: flex;
+  justify-content: space-between;
+
 }
-
-
 </style>
