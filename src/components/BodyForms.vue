@@ -3,7 +3,8 @@ import InputsForm from "./InputsForm.vue";
 import {defineProps } from "vue";
 
 defineProps([
-  'array'
+  'array',
+  'specific'
 ])
 
 </script>
@@ -20,6 +21,7 @@ defineProps([
           :placeholder="item.placeholder"
           :required="item.required"
           :index="index"
+          :specific="specific"
         />
         <slot name="ckS">
           

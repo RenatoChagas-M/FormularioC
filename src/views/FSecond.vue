@@ -65,7 +65,7 @@ const infoStore = useInfoStore();
 
 <template>
   <TittlePage tittle="SignUp 2" />
-  <Forms :array="infoStore.Info2">
+  <Forms :array="infoStore.Info2" :specific="infoStore.Info.length">
     <template #ckS>
       <div class="form">
         <div class="state">
